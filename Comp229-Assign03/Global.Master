@@ -13,10 +13,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
-    
+    <link href="Content/BasicCSS.css" rel="stylesheet" type="text/css">
     <title>Page</title>
-    
-    
+     
     <link href="Content/Custom.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
@@ -24,7 +23,9 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-
+   
+<asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
     
 </head>
 <body>

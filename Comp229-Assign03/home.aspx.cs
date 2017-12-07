@@ -27,7 +27,16 @@ namespace Comp229_Assign03
             
         }
 
-       
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            GridViewRow row = GridView1.SelectedRow;
+
+
+            string stdID = row.Cells[1].Text;
+
+            Response.Redirect("Student.aspx?Name=" + stdID);
+        }
 
     }
 }
