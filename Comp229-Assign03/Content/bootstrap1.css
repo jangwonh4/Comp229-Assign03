@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -4974,8 +4974,8 @@ a.badge:focus {
   padding-bottom: 30px;
   
   color: inherit;
-  background-color: #E37638;
-    height: 211px;
+  background-color: aquamarine;
+    height: 50px;
 width:100%;
     margin-left:0%;
     margin-right:0%;
@@ -5024,7 +5024,8 @@ width:100%;
     font-size: 63px;
   }
 }
-.thumbnail {
+.thumbnail {(
+rad44t(45
   display: block;
   padding: 4px;
   margin-bottom: 20px;

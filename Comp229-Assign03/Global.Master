@@ -15,10 +15,10 @@
     <head runat="server">
     <link href="Content/BasicCSS.css" rel="stylesheet" type="text/css">
     <title>Page</title>
-     
+    <link href="Content/Site.css" rel="stylesheet" />
     <link href="Content/Custom.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.css" rel="stylesheet" />
-    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap1.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.9.1.min.js"></script>
@@ -30,36 +30,51 @@
 </head>
 <body>
     <form runat="server">
+         <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
         
-
-        <nav class="navbar navbar-default" id="customNavBar">
-            <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
                 <div class="navbar-header">
-                    
-                    <a class="navbar-brand" runat="server" href="LandingPage.aspx"><img src="images/CompanyPicture.png" style="width:50px;height:30px;"/></a>
-                </div>
+                    <img src="image/CompanyPicture.png">
+                    </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                                       
                         
-                        <li><a runat="server" href="Student.aspx">Student Page</a></li>
-                        <li><a runat="server" href="Course.aspx">Course Page</a></li>
-                       
-                    </ul>
-                   
-                        
-                        
-                </div>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Course.aspx">Courses</a></li>
+                                <li><a runat="server" href="~/Student.aspx">Student</a></li>
+                              </ul>
+                            </div>
+                  </div>
             </div>
-
-        </nav>
+        
          <div class="section-title">
-
 		<div class="divider"></div>
 
 	</div>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-             
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">         
             </asp:ContentPlaceHolder>
            <div class="section-title">
 

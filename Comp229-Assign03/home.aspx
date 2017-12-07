@@ -1,12 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Global.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="Comp229_Assign03.home" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
- 
-        
-        <label padding-top: 50px;">
-            <br />
-            <br />            Student List</label>
-        &nbsp;<asp:GridView ID="GridView1"  autogenerateselectbutton="True"  onselectedindexchanged="GridView1_SelectedIndexChanged" 
+    <img src="image/BannerPic.png" width="30%" /><br />
+    <h1>Welcome to Min gI College</h1>
+    <p>You can add your information and add the courses with edit</p>
+&nbsp;<asp:GridView ID="GridView1"  autogenerateselectbutton="True"  onselectedindexchanged="GridView1_SelectedIndexChanged" 
              runat="server" AutoGenerateColumns="False"  Height="173px" HorizontalAlign="Center" Width="600px" CellPadding="3" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2" >
                 
             <AlternatingRowStyle HorizontalAlign="Center" />
@@ -29,42 +27,37 @@
         
        <div class="divider"></div>
     <div class="container margin" >
-         <h3 class="margin" >Enter New Student Details</h3>
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3">
+         <h3 class="margin" >Enter New Student<table class="auto-style1">
+             <tr>
+                 <td>
                     <asp:Label ID="FName" runat="server" Text="Label">First Name :</asp:Label>
-                </div>
-                <div class="col-sm-3">
-                    <asp:TextBox ID="BoxFName" runat="server" ></asp:TextBox>
+                 </td>
+                 <td><asp:TextBox ID="BoxFName" runat="server" ></asp:TextBox></td>
+                 <td>
+                    
                     <asp:RequiredFieldValidator ID="FirstNameRequiredVal" runat="server" ErrorMessage="Fill out" ValidationGroup="InsertValidation" ControlToValidate="BoxFName" ForeColor="Red">*Must be filled out</asp:RequiredFieldValidator>
-                </div>
-                <div class="col-sm-3"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3">
+                 </td>
+             </tr>
+             <tr>
+                 <td>
                     <asp:Label ID="LName" runat="server" Text="Label" >Last Name :</asp:Label>
-                </div>
-                <div class="col-sm-3">
+                 </td>
+                 <td>
                     <asp:TextBox ID="BoxLName" runat="server" ></asp:TextBox>
+                    </td>
+                 <td>
                     <asp:RequiredFieldValidator ID="LastNameRequiredVal" runat="server" ErrorMessage="Fill out" ValidationGroup="InsertValidation" ControlToValidate="BoxLName" ForeColor="Red">*Must be filled out</asp:RequiredFieldValidator>
 
-                </div>
-                <div class="col-sm-3"></div>
-            </div>
-
-            <div class="row " style="margin-top:2%">
-                
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2">
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="3">
                      <asp:Button ID="Button1" runat="server" Text="Add Student"  CssClass="btn btn-default btn-lg bg-2" OnClick="btnDone_Click" ValidationGroup="InsertValidation" />
 
-                </div>
-            </div>
-        </div>
+                 </td>
+             </tr>
+             </table>
 
-		<div class="divider"></div>
-
+</div>
 </asp:Content>
+
