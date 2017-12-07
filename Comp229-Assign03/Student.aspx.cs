@@ -45,11 +45,11 @@ namespace Comp229_Assign03
             DStudent.Parameters.Add("@StudentID", System.Data.SqlDbType.Int);
             DStudent.Parameters["@StudentID"].Value = Convert.ToInt32(Request.QueryString["Name"]);
             
-                conn.Open();
-                DEnrollment.ExecuteNonQuery();
-                DStudent.ExecuteNonQuery();
-                Response.Redirect("home.aspx");
-                conn.Close();
+            conn.Open();
+            DEnrollment.ExecuteNonQuery();
+            DStudent.ExecuteNonQuery();
+            Response.Redirect("home.aspx");
+            conn.Close();
             
         }
         protected void Update(string lastName, string firstMidName)
