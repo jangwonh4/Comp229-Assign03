@@ -55,7 +55,7 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
               <div class="container">
                 <div class="navbar-header">
-                    <img src="image/CompanyPicture.png">
+                    <a href="home.aspx"><img src="image/CompanyPicture.png"></a>
                     </div>
                 <div class="navbar-collapse collapse">
                                        
