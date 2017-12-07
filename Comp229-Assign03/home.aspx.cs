@@ -11,10 +11,10 @@ namespace Comp229_Assign03
 {
     public partial class home : System.Web.UI.Page
     {
-
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Comp229Assign03ConnectionString"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Comp229Assign03ConnectionString"].ToString());
+           
 
             SqlCommand comm = new SqlCommand("SELECT * FROM Students", conn);
             
@@ -27,15 +27,41 @@ namespace Comp229_Assign03
             
         }
 
+        protected void btnDone_Click(object sender, EventArgs e)
+        {
+            SqlCommand InsertName = new SqlCommand("INSERT INTO Comp229Assign03.[dbo].Students ( FirstMidName, LastName, EnrollmentDate) VALUES(@FirstName, @LastName, @EnrollmentDate); ", conn);
+
+            //LabelFirstName.Text = "Test";
+            InsertName.Parameters.Add("@FirstName", System.Data.SqlDbType.VarChar);
+            InsertName.Parameters["@FirstName"].Value = BoxFName.Text;
+
+            InsertName.Parameters.Add("@LastName", System.Data.SqlDbType.VarChar);
+            InsertName.Parameters["@LastName"].Value = BoxLName.Text;
+
+            InsertName.Parameters.Add("@EnrollmentDate", System.Data.SqlDbType.Date);
+            InsertName.Parameters["@EnrollmentDate"].Value = DateTime.Now;
+
+            try
+            {
+                conn.Open();
+                InsertName.ExecuteNonQuery();
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+ 
+
+        }
+
+
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             GridViewRow row = GridView1.SelectedRow;
-
-
-            string stdID = row.Cells[1].Text;
-
-            Response.Redirect("Student.aspx?Name=" + stdID);
+            string STUDENT = row.Cells[1].Text;
+            Response.Redirect("Student.aspx?Name=" + STUDENT );
         }
 
     }
