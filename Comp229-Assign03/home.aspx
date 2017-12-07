@@ -13,7 +13,7 @@
             <Columns>
                 <asp:BoundField DataField="StudentID" HeaderText="StudentID" InsertVisible="False" ReadOnly="True"  />
                 <asp:BoundField DataField="LastName" HeaderText="LastName" />
-                <asp:BoundField DataField="FirstMidName" HeaderText="FirstMidName" />
+                <asp:BoundField DataField="FirstMidName" HeaderText="Name" />
 
             </Columns>
                 <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />

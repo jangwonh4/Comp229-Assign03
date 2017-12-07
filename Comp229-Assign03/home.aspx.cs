@@ -29,9 +29,9 @@ namespace Comp229_Assign03
 
         protected void btnDone_Click(object sender, EventArgs e)
         {
-            SqlCommand InsertName = new SqlCommand("INSERT INTO Comp229Assign03.[dbo].Students ( FirstMidName, LastName, EnrollmentDate) VALUES(@FirstName, @LastName, @EnrollmentDate); ", conn);
+            SqlCommand InsertName = new SqlCommand("INSERT INTO Comp229Assign03.[dbo].Students (FirstMidName, LastName, EnrollmentDate) VALUES(@FirstName, @LastName, @EnrollmentDate); ", conn);
 
-            //LabelFirstName.Text = "Test";
+
             InsertName.Parameters.Add("@FirstName", System.Data.SqlDbType.VarChar);
             InsertName.Parameters["@FirstName"].Value = BoxFName.Text;
 
@@ -40,19 +40,13 @@ namespace Comp229_Assign03
 
             InsertName.Parameters.Add("@EnrollmentDate", System.Data.SqlDbType.Date);
             InsertName.Parameters["@EnrollmentDate"].Value = DateTime.Now;
-
-            try
-            {
-                conn.Open();
-                InsertName.ExecuteNonQuery();
-
-            }
-            finally
-            {
-                conn.Close();
-            }
+         
+            conn.Open();
+            InsertName.ExecuteNonQuery();
+            conn.Close();
  
-
+                    
+ 
         }
 
 
