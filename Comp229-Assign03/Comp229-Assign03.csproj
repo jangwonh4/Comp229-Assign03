@@ -267,6 +267,7 @@
     </Content>
     <Content Include="home.aspx" />
     <Content Include="image\Bannerpic.png" />
+    <Content Include="image\CompanyPicture.png" />
     <Content Include="obj\Debug\Comp229-Assign03.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Comp229-Assign03.dll" />
     <Content Include="obj\Debug\Comp229-Assign03.pdb" />

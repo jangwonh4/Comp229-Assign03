@@ -17,9 +17,19 @@ namespace Comp229_Assign03
         protected void Page_Load(object sender, EventArgs e)
         {
             
+            if(!IsPostBack)
+            {
+                OpenWeb();
+            }
+
+
+        }
+
+        protected void OpenWeb()
+        {
             int StudentID = Convert.ToInt32(Request.QueryString["Name"]);
 
-            
+
             SqlCommand comm = new SqlCommand("SELECT a.StudentID, a.LastName, a.FirstMidName, b.CourseID, b.Title, b.Credits FROM Students a JOIN Enrollments e on(a.StudentID = e.StudentID) JOIN Courses b ON(e.CourseID = b.CourseID) where a.StudentID = @StudentID", conn);
             comm.Parameters.Add("@StudentID", System.Data.SqlDbType.Int);
             comm.Parameters["@StudentID"].Value = StudentID;
@@ -29,8 +39,6 @@ namespace Comp229_Assign03
             GridView1.DataBind();
             reader.Close();
             conn.Close();
-
-
         }
 
         protected void Delete()
@@ -54,7 +62,7 @@ namespace Comp229_Assign03
         }
         protected void Update(string lastName, string firstMidName)
         {
-            SqlCommand upd = new SqlCommand("UPDATE Students SET FirstMidName=@FirstMidName, LastName=@LastName WHERE StudentID=@StudentID", conn);
+            SqlCommand upd = new SqlCommand("UPDATE Students SET FirstMidName=@FirstMidName, LastName=@LastName, Title=@Title, CourseID=@CourseID WHERE StudentID=@StudentID", conn);
 
             upd.Parameters.Add("@FirstMidName", System.Data.SqlDbType.VarChar);
             upd.Parameters["@FirstMidName"].Value = firstMidName;
@@ -64,6 +72,8 @@ namespace Comp229_Assign03
          
             upd.Parameters.Add("@StudentID", System.Data.SqlDbType.Int);
             upd.Parameters["@StudentID"].Value = Convert.ToInt32(Request.QueryString["Name"]);
+
+            
 
 
                 conn.Open();
@@ -75,36 +85,37 @@ namespace Comp229_Assign03
 
 
         
-        protected void StudentGridView_RowCancelingEdit(Object sender, GridViewCancelEditEventArgs e)
+        protected void RowCancelingEdit(Object sender, GridViewCancelEditEventArgs e)
         {
             GridView1.EditIndex = -1;
-            Response.Redirect("Student.aspx");
+            OpenWeb();
 
         }
-        protected void StudentGridView_RowEditing(Object sender, GridViewEditEventArgs e)
+        protected void RowEditing(Object sender, GridViewEditEventArgs e)
         {
             
             GridView1.EditIndex = e.NewEditIndex;
-            Response.Redirect("Student.aspx");
+            OpenWeb();
 
         }
-        protected void Student_GridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow row = GridView1.Rows[e.RowIndex];
 
             string lastName = ((TextBox)(row.Cells[2].Controls[0])).Text;
             string firstMidName = ((TextBox)(row.Cells[3].Controls[0])).Text;
+            string Title = ((DropDownList)sender).SelectedValue;
             Update(lastName, firstMidName);
 
             GridView1.EditIndex = -1;
             
 
         }
-        protected void Student_GridView_RowUpdated(Object sender, GridViewUpdatedEventArgs e)
+        protected void RowUpdated(Object sender, GridViewUpdatedEventArgs e)
         {
-            Response.Redirect("Student.aspx");
+            OpenWeb();
         }
-        protected void student_GridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             Delete();
         }
