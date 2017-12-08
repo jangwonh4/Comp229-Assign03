@@ -79,9 +79,13 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">         
             </asp:ContentPlaceHolder>
            <div class="section-title"><div class="divider"></div></div>
-           
+           <footer>
+                <h6>&copy; ------<%: DateTime.Now.Year %> - Min gi Jang # Student Number : 300932496 / Assignment 3 -----------</h6>
+            </footer>
         
     </form>
+
 </body>
+
 
 </html>

@@ -6,8 +6,13 @@
     <h3 class="margin" >You can add your information and add the courses with edit</h3>
 &nbsp;
     
-            <asp:GridView ID="GridView1"  autogenerateselectbutton="True"  onselectedindexchanged="GridView1_SelectedIndexChanged" 
-             runat="server" AutoGenerateColumns="False"  Height="173px" HorizontalAlign="Center" Width="600px" CellPadding="3" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2" >
+            <button class="btn btn-default" onclick="window.location.href='Course.aspx'" type="button">
+                Delete Course </button>
+    <button class="btn btn-default" type="button" onclick="window.location.href='Update.aspx'" type="button">
+        Add Student
+    </button>
+&nbsp;<asp:GridView ID="GridView1"  CssClass="GridPosition" autogenerateselectbutton="True"  onselectedindexchanged="GridView1_SelectedIndexChanged" 
+             runat="server"  AutoGenerateColumns="False"  Height="173px" HorizontalAlign="Center" Width="600px" CellPadding="3" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2" >
                 
             <AlternatingRowStyle HorizontalAlign="Center" />
             <Columns>
