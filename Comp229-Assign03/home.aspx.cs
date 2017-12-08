@@ -27,27 +27,7 @@ namespace Comp229_Assign03
             
         }
 
-        protected void btnDone_Click(object sender, EventArgs e)
-        {
-            SqlCommand InsertName = new SqlCommand("INSERT INTO Comp229Assign03.[dbo].Students (FirstMidName, LastName, EnrollmentDate) VALUES(@FirstName, @LastName, @EnrollmentDate); ", conn);
-
-
-            InsertName.Parameters.Add("@FirstName", System.Data.SqlDbType.VarChar);
-            InsertName.Parameters["@FirstName"].Value = BoxFName.Text;
-
-            InsertName.Parameters.Add("@LastName", System.Data.SqlDbType.VarChar);
-            InsertName.Parameters["@LastName"].Value = BoxLName.Text;
-
-            InsertName.Parameters.Add("@EnrollmentDate", System.Data.SqlDbType.Date);
-            InsertName.Parameters["@EnrollmentDate"].Value = DateTime.Now;
-         
-            conn.Open();
-            InsertName.ExecuteNonQuery();
-            conn.Close();
- 
-                    
- 
-        }
+        
 
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

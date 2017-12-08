@@ -62,7 +62,7 @@ namespace Comp229_Assign03
         }
         protected void Update(string lastName, string firstMidName)
         {
-            SqlCommand upd = new SqlCommand("UPDATE Students SET FirstMidName=@FirstMidName, LastName=@LastName, Title=@Title, CourseID=@CourseID WHERE StudentID=@StudentID", conn);
+            SqlCommand upd = new SqlCommand("UPDATE Students SET FirstMidName=@FirstMidName, LastName=@LastName WHERE StudentID=@StudentID", conn);
 
             upd.Parameters.Add("@FirstMidName", System.Data.SqlDbType.VarChar);
             upd.Parameters["@FirstMidName"].Value = firstMidName;
@@ -104,7 +104,7 @@ namespace Comp229_Assign03
 
             string lastName = ((TextBox)(row.Cells[2].Controls[0])).Text;
             string firstMidName = ((TextBox)(row.Cells[3].Controls[0])).Text;
-            string Title = ((DropDownList)sender).SelectedValue;
+            
             Update(lastName, firstMidName);
 
             GridView1.EditIndex = -1;

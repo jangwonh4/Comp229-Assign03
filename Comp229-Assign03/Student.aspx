@@ -13,7 +13,11 @@
                 <asp:BoundField DataField="LastName" HeaderText="LastName" />
                 <asp:BoundField DataField="FirstMidName" HeaderText="FirstMidName" />
                 <asp:BoundField DataField="CourseID" HeaderText="CourseID" ReadOnly="True" />
-                <asp:BoundField DataField="Title" HeaderText="Title" ReadOnly="True"/>
+                <asp:TemplateField HeaderText="Title">
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="Credits" HeaderText="Credits" ReadOnly="True"/>
                      
             </Columns>
